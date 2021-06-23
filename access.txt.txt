@@ -1,0 +1,18 @@
+user :
+username: employee
+password: 123456
+
+park manager:
+username: park_manager
+password: 123456
+
+admin:
+username: super_admin
+password: 123456
+
+********************
+camunda access url:
+http://localhost:8080/camunda/app/cockpit/default/#/login
+login:demo
+password:demo
+

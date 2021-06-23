@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Ajouter une nouvelle machine</h1>
+    <p class="mb-4">
+        <a routerLink="/dashboard/home/machines" class="btn btn-primary">Retour</a>
+    </p>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Ajout</h6>
+        </div>
+        <div class="card-body">
+
+            <form [formGroup]="machineForm" class="user" (ngSubmit)="addMachine()">
+
+                <div class="form-group">
+                    <label for="">Nom </label>
+                    <input type="text" formControlName="name" class="form-control " id="exampleInputEmail"
+                        aria-describedby="nameHelp" >
+                </div>
+
+
+
+
+                <button type="submit" [disabled]="! machineForm.valid" class="btn btn-primary btn-user btn-block">
+                    Ajouter
+                </button>
+
+                <div class="form-group my-2" *ngIf="errMsg!=''">
+                    <div class="alert alert-danger">
+                        {{errMsg}}
+                    </div>
+                </div>
+                <div class="form-group my-2" *ngIf="successMsg!=''">
+                    <div class="alert alert-success">
+                        {{successMsg}}
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>

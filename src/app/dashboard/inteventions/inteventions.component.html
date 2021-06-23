@@ -1,0 +1,89 @@
+<!--interventions-->
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Mes intervention</h1>
+    <p class="mb-4">
+        La list ci-dessous présente une liste de mes interventions.
+    </p>
+
+    
+    <div class="card mb-4  border-left-primary" *ngFor="let i of interventions;">
+        <div class="card-body">
+            <p> {{i.description  }} </p>
+            <p> <small> {{ i.utilTimestamp | date:'medium' }} </small> </p>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <strong><label for="">Arrêt programmées</label></strong><br>
+
+                        <span class="badge badge-danger mr-2" *ngFor=" let item of formatParameter(i.parametersString).arretProgrammee ">{{item.key}}</span>
+
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <strong><label for="">Changement de série/Industrilisation</label></strong><br>
+
+                       
+                        <span class="badge badge-danger mr-2" *ngFor=" let item of formatParameter(i.parametersString).changementSerie ">{{item.key}}</span>
+
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <strong><label for="">Repture approvisionnement</label></strong><br>
+                        
+
+                        <span class="badge badge-danger mr-2" *ngFor=" let item of formatParameter(i.parametersString).repture ">{{item.key}}</span>
+
+                        
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <strong><label for="">Pannes machines</label></strong><br>
+                        
+
+                        <span class="badge badge-danger mr-2" *ngFor=" let item of formatParameter(i.parametersString).pannesMachines ">{{item.key}}</span>
+
+                        
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <strong><label for="">Dérives process/reglage machines</label></strong><br>
+                       
+                        <span class="badge badge-danger mr-2" *ngFor=" let item of formatParameter(i.parametersString).derivesProccess ">{{item.key}}</span>
+
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <strong><label for="">Non qualité</label></strong><br>
+                        
+
+                        <span class="badge badge-danger mr-2" *ngFor=" let item of formatParameter(i.parametersString).nonQuality ">{{item.key}}</span>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

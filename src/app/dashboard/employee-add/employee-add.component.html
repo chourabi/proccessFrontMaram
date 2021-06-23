@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Ajouter une nouvelle employée</h1>
+    <p class="mb-4">
+        <a routerLink="/dashboard/home/admin-employees" class="btn btn-primary">Retour</a>
+    </p>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Ajout</h6>
+        </div>
+        <div class="card-body">
+
+            <form [formGroup]="signinForm" class="user" (ngSubmit)="signinNow()">
+
+                <div class="form-group">
+                    <label for="">Nom prénom</label>
+                    <input type="text" formControlName="name" class="form-control " id="exampleInputEmail"
+                        aria-describedby="nameHelp" >
+                </div>
+                <div class="form-group">
+                    <label for="">nom d'utilisateur</label>
+                    <input type="text" formControlName="username" class="form-control " id="exampleInputEmail"
+                        aria-describedby="usernameHelp"  >
+                </div>
+                <div class="form-group">
+                    <label for="">CIN</label>
+                    <input type="number" formControlName="cinId" class="form-control " id="exampleInputEmail"
+                        aria-describedby="usernameHelp"  >
+                </div>
+                
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" formControlName="email" class="form-control " id="exampleInputEmail"
+                        aria-describedby="emailHelp"  >
+                </div>
+
+                <div class="form-group">
+                    <label for="">Mot de passe</label>
+                    <input type="password" formControlName="password" class="form-control " id="exampleInputPassword"
+                        placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label for="">
+                        Role
+                    </label>
+                    <select formControlName="role" class="form-control ">
+                        <option value="user">Employé</option>
+                        <option value="pm">Agent de proccess</option>
+                        <option value="admin">Administrateur</option>
+
+                    </select>
+                </div>
+
+
+
+
+                <button type="submit" [disabled]="! signinForm.valid" class="btn btn-primary btn-user btn-block">
+                    Créer maintenant
+                </button>
+
+                <div class="form-group my-2" *ngIf="errMsg!=''">
+                    <div class="alert alert-danger">
+                        {{errMsg}}
+                    </div>
+                </div>
+                <div class="form-group my-2" *ngIf="successMsg!=''">
+                    <div class="alert alert-success">
+                        {{successMsg}}
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Liste des employés</h1>
+    <p class="mb-4">
+        Le tableau ci-dessous présente une liste de tous les employés du parc.
+    </p>
+    <p class="mb-4">
+        <a routerLink="/dashboard/home/admin-employees-add" class="btn btn-primary">Ajouter</a>
+    </p>
+    
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des employés</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nom prénom</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>CinId</th>
+                            <th>Actions</th>
+                            
+                            
+                            
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+
+                        <tr *ngFor="let d of employees">
+                            <td>
+                                {{d.id}}
+                            </td>
+                            <td>
+                                {{d.name}}
+                            </td>
+                            <td>
+                                {{d.email}}
+                            </td>
+                            <td>
+                                {{d.username}}
+                            </td>
+                            <td>
+                                <span class="badge badge-success" *ngIf="d.roles[0].name == 'ROLE_ADMIN' ">
+                                    Administrateur
+                                </span>
+                                <span class="badge badge-warning" *ngIf="d.roles[0].name == 'ROLE_PM' ">
+                                    Agent de proccess
+                                </span>
+                                <span class="badge badge-dark text-white" *ngIf="d.roles[0].name == 'ROLE_USER' ">
+                                    Employé
+                                </span>
+                                
+                            </td>
+                            <td>
+                                {{d.cinId}}
+                            </td>
+                            <td>
+                                <button class="btn-sm btn btn-info mr-2" [routerLink]=" '/home/admin-employees-edit/'+d.id " >Modifier</button>
+
+                                <button class="btn-sm btn btn-danger" (click)="deleteEmployee(d.id)" >Supprimer</button>
+
+                                
+                                
+                            </td>
+                            
+
+
+                            
+                        </tr>
+                        
+                        
+                        
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Edit employee</h1>
+    <p class="mb-4">
+        You can edit as many employee as you want.
+    </p>
+    <p class="mb-4">
+        <a routerLink="/dashboard/home/admin-employees" class="btn btn-primary">Back</a>
+    </p>
+    
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Employees List</h6>
+        </div>
+        <div class="card-body">
+        
+<form [formGroup]="signinForm" class="user" (ngSubmit)="signinNow()">
+                                    
+    <div class="form-group">
+        <input type="text" formControlName="name" class="form-control "
+            id="exampleInputEmail" aria-describedby="nameHelp"
+            placeholder="Enter your full name">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="username" class="form-control "
+            id="exampleInputEmail" aria-describedby="usernameHelp"
+            placeholder="Enter username">
+    </div>
+    <div class="form-group">
+        <input type="number" formControlName="cinId" class="form-control "
+            id="exampleInputEmail" aria-describedby="usernameHelp"
+            placeholder="Enter your ID">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="category" class="form-control "
+            id="exampleInputEmail" aria-describedby="usernameHelp"
+            placeholder="Enter your category">
+    </div>
+    <div class="form-group">
+        <input type="email" formControlName="email" class="form-control "
+            id="exampleInputEmail" aria-describedby="emailHelp"
+            placeholder="Enter your email...">
+    </div>
+    
+
+    
+    <div class="form-group">
+        <label for="">
+            <strong> Role </strong>
+        </label>
+        <select formControlName="role" class="form-control " >
+            <option value="ROLE_USER">Employee</option>
+            <option value="ROLE_PM">Park manager</option>
+            <option value="ROLE_ADMIN">Admin</option>
+            
+        </select>
+    </div>
+    
+
+    
+    
+    <button type="submit" [disabled]="! signinForm.valid" class="btn btn-primary btn-user btn-block">
+        MODIFIER
+    </button>
+
+    <div class="form-group my-2" *ngIf="errMsg!=''">
+        <div class="alert alert-danger">
+            {{errMsg}}
+        </div>
+    </div>
+    <div class="form-group my-2" *ngIf="successMsg!=''">
+        <div class="alert alert-success">
+            {{successMsg}}
+        </div>
+    </div>
+    
+    
+
+    <hr>
+    <!--<a href="index.html" class="btn btn-google btn-user btn-block">
+        <i class="fab fa-google fa-fw"></i> Login with Google
+    </a>
+    <a href="index.html" class="btn btn-facebook btn-user btn-block">
+        <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+    </a>-->
+</form>
+
+
+        </div>
+    </div>
+</div>
+

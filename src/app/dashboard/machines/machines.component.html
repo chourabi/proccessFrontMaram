@@ -1,0 +1,55 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Liste des machines</h1>
+    <p class="mb-4">
+        Le tableau ci-dessous présente une liste de tous les machines.
+    </p>
+    <p class="mb-4">
+        <a routerLink="/dashboard/home/admin-add-machine" class="btn btn-primary">Ajouter</a>
+    </p>
+    
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des machines</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Réference</td>
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+
+
+                        <tr *ngFor="let m of machines;let j=index;">
+                            <td>
+                                {{j}}
+                            </td>
+                            <td>
+                                {{m.name}}
+                            </td>
+                            <td>
+                                <button class="btn-sm btn btn-danger" (click)="deleteMachine(m.id)" >Supprimer</button>
+
+                                
+                                
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
